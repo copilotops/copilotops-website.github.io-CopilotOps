@@ -21,14 +21,27 @@ body {
 }
 
 /* Navigation */
-header {
-    position: sticky;
-    top: 0;
-    background: var(--bg-color);
-    border-bottom: 1px solid var(--border-color);
-    z-index: 100;
+/* Logo Image Styling */
+.logo-img {
+    max-height: 50px; /* Adjust this height if the logo is too big or small */
+    width: auto;
+    border-radius: 4px; /* Matches your logo's slight rounding */
 }
 
+/* Enhanced Nav Link Hover */
+.nav-menu a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    padding-bottom: 4px;
+}
+
+.nav-menu a:hover {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}
 nav {
     display: flex;
     justify-content: space-between;
