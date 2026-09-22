@@ -38,64 +38,6 @@
     if (e.key === 'Escape') closeNav();
   });
 
-  /* ---------- 1b. "Use cases" nav dropdown ---------- */
-
-  var useCasesToggle = document.getElementById('useCasesToggle');
-  var useCasesMenu    = document.getElementById('useCasesMenu');
-
-  function closeUseCases() {
-    useCasesMenu.classList.remove('is-open');
-    useCasesToggle.setAttribute('aria-expanded', 'false');
-  }
-
-  if (useCasesToggle && useCasesMenu) {
-    useCasesToggle.addEventListener('click', function (e) {
-      e.stopPropagation();
-      var open = useCasesMenu.classList.toggle('is-open');
-      useCasesToggle.setAttribute('aria-expanded', String(open));
-    });
-
-    useCasesMenu.addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') closeUseCases();
-    });
-
-    document.addEventListener('click', function (e) {
-      if (!useCasesToggle.contains(e.target) && !useCasesMenu.contains(e.target)) closeUseCases();
-    });
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') closeUseCases();
-    });
-  }
-
-  /* ---------- 1c. Theme toggle (light / dark) ---------- */
-
-  var themeToggle = document.getElementById('themeToggle');
-  var THEME_KEY = 'copilotops-theme';
-
-  function applyTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    if (themeToggle) {
-      themeToggle.setAttribute('aria-pressed', String(theme === 'dark'));
-      themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
-    }
-  }
-
-  (function initTheme() {
-    var saved = null;
-    try { saved = localStorage.getItem(THEME_KEY); } catch (err) { /* storage unavailable */ }
-    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    applyTheme(saved || (prefersDark ? 'dark' : 'light'));
-  })();
-
-  if (themeToggle) {
-    themeToggle.addEventListener('click', function () {
-      var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      applyTheme(next);
-      try { localStorage.setItem(THEME_KEY, next); } catch (err) { /* storage unavailable */ }
-    });
-  }
-
   /* ---------- 2. Footer year ---------- */
 
   var yearEl = document.getElementById('year');
@@ -132,67 +74,20 @@
       cta: 'Open the architecture grid'
     },
 
-    cowork: {
-      label: 'What is Cowork?',
-      keywords: ['cowork', 'skill', 'skills', 'plugin', 'plugins', 'app building', 'build apps'],
+    agentic: {
+      label: 'Guide me through Agentic AI',
+      keywords: ['agentic', 'agent', 'autonomous', 'multi-step', 'tool', 'tools', 'loop', 'planner'],
       reply: [
-        'Cowork is the workspace where your team and an agent build together.',
-        'Instead of one-off scripts, work is assembled from reusable, governed building blocks — ' +
-        'skills, plugins and small internal apps that can be shared and reviewed like any other ' +
-        'piece of engineering.'
+        'Agentic AI is our pattern for work that takes several steps and touches real systems.',
+        'The retail inventory build is the clearest example: it reconciles point-of-sale movement ' +
+        'against warehouse stock every hour, forecasts the shortfall per store, and raises the ' +
+        'replenishment order in SAP under a value cap. Stockouts fell 34%. Anything above the cap ' +
+        'goes to a regional planner instead.',
+        'The engineering effort goes into boundaries — scoped credentials, action limits, ' +
+        'replayable traces and a defined stopping condition.'
       ],
-      target: '#usecase-cowork',
-      cta: 'See Cowork'
-    },
-
-    governance: {
-      label: 'How is governance handled?',
-      keywords: ['governance', 'purview', 'sensitivity', 'label', 'dlp', 'compliance', 'policy'],
-      reply: [
-        'Every agent inherits your existing data controls rather than working around them.',
-        'That means Purview policies, sensitivity labels carried through to what the agent is ' +
-        'allowed to read or write, and DLP rules enforced at the connector — not just on the ' +
-        'document after the fact.'
-      ],
-      target: '#usecase-governance',
-      cta: 'See Governance'
-    },
-
-    declarative: {
-      label: 'What are declarative agents?',
-      keywords: ['declarative', 'manifest', 'm365', 'microsoft 365', 'connector', 'connectors'],
-      reply: [
-        'Declarative agents are defined by manifest rather than custom code.',
-        'They wire directly into Microsoft 365 applications — Teams, SharePoint, Outlook — through ' +
-        'existing connectors, so permissions and audit trails stay native to M365 instead of living ' +
-        'in a separate system.'
-      ],
-      target: '#usecase-declarative-agents',
-      cta: 'See Declarative agents'
-    },
-
-    scout: {
-      label: 'Tell me about the Scout agent',
-      keywords: ['scout', 'research', 'monitor', 'monitoring', 'reconnaissance'],
-      reply: [
-        'The Scout agent is our research-and-reconnaissance pattern.',
-        'It goes out across approved sources, gathers and ranks what is relevant to a question or a ' +
-        'monitoring task, and comes back with a brief instead of a wall of links.'
-      ],
-      target: '#usecase-scout-agent',
-      cta: 'See the Scout agent'
-    },
-
-    voice: {
-      label: 'Do you build voice agents?',
-      keywords: ['voice', 'phone', 'call', 'ivr', 'telephony'],
-      reply: [
-        'Yes — the same grounded, governed runtime behind a phone or voice-channel interface.',
-        'It handles call intake, triage and simple transactions, with the same fallback-to-human ' +
-        'rules as every other build on this page.'
-      ],
-      target: '#usecase-voice-agent',
-      cta: 'See the Voice agent'
+      target: '#cap-agentic-ai',
+      cta: 'Jump to Agentic AI'
     },
 
     power: {
@@ -236,6 +131,20 @@
       cta: 'Jump to GitHub harness'
     },
 
+    classic: {
+      label: 'When do you use classic AI?',
+      keywords: ['classic', 'machine learning', 'ml', 'model', 'forecast', 'classifier', 'claims', 'regulator'],
+      reply: [
+        'When the requirement is a reproducible number rather than a conversation.',
+        'Our insurance claims triage has no generative step at all: a trained classifier and a rules ' +
+        'engine sort claims by severity and fraud signal, because the regulator needs a decision ' +
+        'that can be reproduced exactly, twice, a year apart. It runs at 94% triage accuracy for a ' +
+        'fraction of the cost of a language model.'
+      ],
+      target: '#cap-classic-ai',
+      cta: 'Jump to Classic AI'
+    },
+
     architecture: {
       label: 'How is a CopilotOps agent built?',
       keywords: ['architecture', 'design', 'diagram', 'runtime', 'stack', 'guardrail', 'guardrails', 'security', 'governance', 'audit'],
@@ -276,14 +185,14 @@
     }
   };
 
-  var STARTER_PROMPTS = ['projects', 'cowork', 'power', 'github'];
+  var STARTER_PROMPTS = ['projects', 'agentic', 'power', 'github'];
 
   var FALLBACK = {
     reply: [
-      'I only know this site, so I can help with our agent builds, our use cases and services, how ' +
-      'an engagement runs, or how to reach us.',
-      'Try a suggestion below, or ask about Cowork, Governance, Declarative agents, Copilot Studio, ' +
-      'the GitHub harness or Power Automation. For anything else, email ' +
+      'I only know this site, so I can help with our agent builds, the five practices, how an ' +
+      'engagement runs, or how to reach us.',
+      'Try a suggestion below, or ask about Copilot Studio, GitHub, classic AI, agentic AI or ' +
+      'Power Automation. For anything else, email ' +
       '<a href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a>.'
     ],
     target: '#capabilities',
@@ -297,8 +206,7 @@
     if (!el) return;
     el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-    var flash = el.closest('.agent-card') || el.closest('.usecase-card') ||
-                (el.classList.contains('cap') ? el : null);
+    var flash = el.closest('.agent-card') || (el.classList.contains('cap') ? el : null);
     if (flash) {
       flash.classList.add('is-highlighted');
       setTimeout(function () { flash.classList.remove('is-highlighted'); }, 2600);
@@ -393,8 +301,8 @@
       greeted = true;
       addMessage('bot', [
         'Hello — I am the CopilotOps project guide.',
-        'I can summarise the agents we have built, explain any of our use cases or services, or ' +
-        'scroll you straight to the part of the page you need. Pick a question below to start.'
+        'I can summarise the agents we have built, explain any of our five practices, or scroll you ' +
+        'straight to the part of the page you need. Pick a question below to start.'
       ]);
       renderPrompts(STARTER_PROMPTS);
     }
