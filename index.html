@@ -499,36 +499,53 @@
 
 <script src="script.js"></script>
 <style>
-/* 1. FIX LOGO SIZE & HEADER ALIGNMENT */
+/* 1. REBUILD HEADER: Logo Top-Left, Nav Bottom-Left */
+.site-header { padding-bottom: 0.5rem !important; }
 .header-inner {
   display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  gap: 1.5rem !important;
+  flex-direction: column !important; /* Stack vertically */
+  align-items: flex-start !important; /* Align to the left */
+  justify-content: flex-start !important;
+  gap: 0.5rem !important;
   width: 100%;
+  min-height: auto !important;
+  padding-top: 1rem !important;
 }
 .brand {
-  order: 1; /* Logo on the left */
-  flex-shrink: 0;
+  order: 1;
+  margin-left: 0 !important;
+  display: block;
 }
 .brand img {
-  height: 38px !important;
+  height: 42px !important;
   width: auto !important;
   max-width: 100% !important;
   display: block;
 }
 @media (min-width: 900px) {
-  .brand img {
-    height: 46px !important;
-  }
+  .brand img { height: 50px !important; }
 }
-/* Shift Navigation to the right */
+
+/* Push Nav to the left directly under the logo */
 .primary-nav {
   order: 2 !important;
-  margin-left: auto !important;
+  margin-left: 0 !important;
+  position: static !important;
+  display: block !important;
 }
+.primary-nav ul {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 1.5rem !important;
+  padding: 0 !important;
+  justify-content: flex-start !important; /* Left aligned */
+}
+
+/* Keep Theme Toggle to the far right of the nav row */
 .theme-toggle {
-  order: 3 !important;
+  order: 3;
+  margin-left: auto !important;
+  align-self: center;
 }
 
 /* 2. Fix invisible logo in Dark Mode */
@@ -589,7 +606,7 @@
   color: #fff; 
   border-color: var(--blue);
 }
-</style>
+</style> 
   <script>
 (function() {
   // Automatically fix all 6 cards without manual HTML editing
