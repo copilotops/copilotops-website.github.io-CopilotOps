@@ -499,7 +499,7 @@
 
 <script src="script.js"></script>
 <style>
-/* 1. HEADER LAYOUT: Stack vertically to force Row 1 and Row 2 */
+/* 1. HEADER LAYOUT: Row 1 (Logo Left, Toggle Right), Row 2 (Menu Button Left) */
 .header-inner {
   display: flex !important;
   flex-direction: column !important;
@@ -512,28 +512,23 @@
 }
 
 /* Row 1: Logo Left, Theme Toggle Right */
-.row-1-wrapper {
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  width: 100% !important;
+.brand {
+  display: flex; justify-content: flex-start; align-items: center;
+  margin: 0; padding: 0;
 }
-.brand { order: 1; flex-shrink: 0; }
 .brand img {
   height: 42px !important; width: auto !important; max-width: 100% !important; display: block;
 }
 @media (min-width: 900px) { .brand img { height: 50px !important; } }
 
 .theme-toggle {
-  order: 2;
-  margin-left: auto !important;
-  margin-right: 0 !important;
+  position: absolute; top: 1.5rem; right: 1.25rem;
+  margin: 0 !important;
 }
 
 /* Row 2: Pure 3-Line (≡) Menu Button directly below logo */
 .nav-toggle {
   display: inline-flex !important;
-  order: 3;
   align-self: flex-start !important; /* Forces button strictly to the left */
   width: 44px !important;
   height: 44px !important;
