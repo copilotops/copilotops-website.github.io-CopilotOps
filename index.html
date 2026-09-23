@@ -499,102 +499,61 @@
 
 <script src="script.js"></script>
 <style>
-/* 1. HEADER LAYOUT: Logo Left, Clean 3-Line Menu Right */
+/* 1. REBUILD HEADER: Logo Top-Left, Nav Bottom-Left */
+.site-header { padding-bottom: 0.5rem !important; }
 .header-inner {
   display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  justify-content: space-between !important;
+  flex-direction: column !important; /* Stack vertically */
+  align-items: flex-start !important; /* Align to the left */
+  justify-content: flex-start !important;
+  gap: 0.5rem !important;
   width: 100%;
   min-height: auto !important;
   padding-top: 1rem !important;
-  padding-bottom: 1rem !important;
+  position: relative;
 }
-.brand { order: 1; flex-shrink: 0; }
-.brand img {
-  height: 42px !important; width: auto !important; max-width: 100% !important; display: block;
-}
-@media (min-width: 900px) { .brand img { height: 50px !important; } }
-
-/* Clean 3-Line (Hamburger) Button */
-.nav-toggle {
-  display: inline-flex !important;
-  align-items: center;
-  justify-content: center;
-  order: 3;
-  width: 44px; height: 44px;
-  padding: 0 !important;
-  border: 1px solid var(--rule) !important;
-  border-radius: var(--radius) !important;
-  background: var(--panel) !important;
-  cursor: pointer;
-}
-/* Hide the word "Menu", make it a pure 3-line icon */
-.nav-toggle__text { display: none !important; }
-
-/* Make the 3 lines thicker and perfectly centered */
-.nav-toggle__bars,
-.nav-toggle__bars::before,
-.nav-toggle__bars::after {
-  display: block;
-  width: 22px; height: 2px;
-  background: var(--ink);
-  content: "";
-  border-radius: 2px;
-}
-.nav-toggle__bars { position: relative; }
-.nav-toggle__bars::before { position: absolute; top: -7px; }
-.nav-toggle__bars::after  { position: absolute; top: 7px; }
-
-.theme-toggle {
-  order: 2;
-  margin-right: 0.75rem !important;
+.brand {
+  order: 1;
   margin-left: 0 !important;
+  display: block;
+}
+.brand img {
+  height: 42px !important;
+  width: auto !important;
+  max-width: 100% !important;
+  display: block;
+}
+@media (min-width: 900px) {
+  .brand img { height: 50px !important; }
 }
 
-/* Dropdown Menu Container */
+/* Push Nav to the left directly under the logo */
 .primary-nav {
-  display: none !important;
-  position: absolute !important;
-  top: 100% !important;
-  left: 0 !important;
-  right: 0 !important;
-  background: var(--panel) !important;
-  border-bottom: 1px solid var(--rule) !important;
-  box-shadow: 0 14px 28px -20px rgba(10, 22, 51, 0.6) !important;
-  z-index: 50;
+  order: 2 !important;
+  margin-left: 0 !important;
+  position: static !important;
+  display: block !important;
+  background: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
 }
-.primary-nav.is-open { display: block !important; }
-
-/* Perfectly aligned straight dropdown items */
 .primary-nav ul {
   display: flex !important;
-  flex-direction: column !important;
-  gap: 0 !important;
-  padding: 0.5rem 1.5rem 1rem 1.5rem !important;
-  list-style: none;
+  flex-wrap: wrap;
+  gap: 1.5rem !important;
+  padding: 0 !important;
+  justify-content: flex-start !important; /* Left aligned */
 }
-.primary-nav li { width: 100%; }
-.primary-nav a, .nav-dropdown > summary {
-  display: block;
-  padding: 1rem 0 !important;
-  border-bottom: 1px solid var(--rule) !important;
-  color: var(--ink) !important;
-  text-decoration: none;
-  font-weight: 500;
-  width: 100%;
-}
-.nav-dropdown__menu {
-  position: static !important;
-  box-shadow: none !important;
-  border: 0 !important;
-  padding: 0 0 0.5rem 1.5rem !important;
-  background: none !important;
-}
-.nav-dropdown__menu a {
-  padding: 0.6rem 0 !important;
-  border-bottom: 0 !important;
-  font-size: 0.95rem;
+
+/* Hide the 3-line menu icon, we want the links visible */
+.nav-toggle { display: none !important; }
+
+/* Keep Theme Toggle to the far right of the top row */
+.theme-toggle {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.25rem;
+  order: 3;
 }
 
 /* 2. Fix invisible logo in Dark Mode */
@@ -603,13 +562,22 @@
   filter: invert(1) hue-rotate(180deg);
 }
 
-/* 3. Fix Dark Mode text readability */
+/* 3. Fix Dark Mode text readability in Architecture Cards */
 .stage--agent { background: var(--panel) !important; }
 .arch__stage li { color: var(--ink-soft) !important; }
 
 /* 4. PREMIUM CARD ALIGNMENT & HOVER */
-.agent-card { display: flex; flex-direction: column; height: 100%; transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
-.agent-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px -16px rgba(10, 22, 51, 0.25); border-color: var(--blue); }
+.agent-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.agent-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -16px rgba(10, 22, 51, 0.25);
+  border-color: var(--blue);
+}
 .agent-card__body { flex-grow: 1; }
 .agent-card__stats { margin-top: 1.5rem; }
 
