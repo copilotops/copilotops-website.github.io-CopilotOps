@@ -400,19 +400,4 @@
     input.value = '';
     respond(matchTopic(text));
   });
-  /* ---------- 4. Architecture Card Toggles ---------- */
-  document.querySelectorAll('.arch-toggle').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var card = btn.closest('.agent-card');
-      if (card) {
-        card.classList.toggle('is-expanded');
-        // Update button text based on state
-        if (card.classList.contains('is-expanded')) {
-          btn.textContent = 'Hide architecture';
-        } else {
-          btn.textContent = 'Show architecture';
-        }
-      }
-    });
-  });
-})();
+  })();
