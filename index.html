@@ -499,44 +499,42 @@
 
 <script src="script.js"></script>
 <style>
-/* 1. HEADER LAYOUT: Row 1 (Logo Left, Toggle Right), Row 2 (Menu Button Left) */
+/* 1. HEADER LAYOUT: Stack vertically to force Row 1 and Row 2 */
 .header-inner {
-  display: grid !important;
-  grid-template-columns: 1fr auto !important;
-  grid-template-rows: auto auto !important;
-  grid-template-areas:
-    "logo toggle"
-    "menu menu" !important;
-  align-items: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
   width: 100%;
   min-height: auto !important;
   padding-top: 1rem !important;
   padding-bottom: 1rem !important;
-  gap: 0.75rem !important;
+  gap: 1rem !important;
 }
 
-/* Row 1: Logo Top-Left */
-.brand {
-  grid-area: logo;
-  justify-self: start;
+/* Row 1: Logo Left, Theme Toggle Right */
+.row-1-wrapper {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
 }
+.brand { order: 1; flex-shrink: 0; }
 .brand img {
   height: 42px !important; width: auto !important; max-width: 100% !important; display: block;
 }
 @media (min-width: 900px) { .brand img { height: 50px !important; } }
 
-/* Row 1: Theme Toggle Top-Right */
 .theme-toggle {
-  grid-area: toggle;
-  justify-self: end;
-  margin: 0 !important;
+  order: 2;
+  margin-left: auto !important;
+  margin-right: 0 !important;
 }
 
-/* Row 2: Pure 3-Line Menu Button directly below logo */
+/* Row 2: Pure 3-Line (≡) Menu Button directly below logo */
 .nav-toggle {
-  grid-area: menu;
-  justify-self: start; /* Forces it to the left */
   display: inline-flex !important;
+  order: 3;
+  align-self: flex-start !important; /* Forces button strictly to the left */
   width: 44px !important;
   height: 44px !important;
   padding: 0 !important;
