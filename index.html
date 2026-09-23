@@ -499,24 +499,36 @@
 
 <script src="script.js"></script>
 <style>
-/* 1. FIX LOGO SIZE & RIGHT SIDE ALIGNMENT */
+/* 1. FIX LOGO SIZE & HEADER ALIGNMENT */
+.header-inner {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 1.5rem !important;
+  width: 100%;
+}
+.brand {
+  order: 1; /* Logo on the left */
+  flex-shrink: 0;
+}
 .brand img {
-  height: 36px !important;
+  height: 38px !important;
   width: auto !important;
   max-width: 100% !important;
   display: block;
 }
 @media (min-width: 900px) {
   .brand img {
-    height: 44px !important;
+    height: 46px !important;
   }
 }
-.header-inner {
-  flex-wrap: nowrap !important;
-  gap: 1rem !important;
+/* Shift Navigation to the right */
+.primary-nav {
+  order: 2 !important;
+  margin-left: auto !important;
 }
-.brand {
-  flex-shrink: 0;
+.theme-toggle {
+  order: 3 !important;
 }
 
 /* 2. Fix invisible logo in Dark Mode */
@@ -578,7 +590,7 @@
   border-color: var(--blue);
 }
 </style>
-<script>
+  <script>
 (function() {
   // Automatically fix all 6 cards without manual HTML editing
   document.querySelectorAll('.agent-card').forEach(function(card) {
