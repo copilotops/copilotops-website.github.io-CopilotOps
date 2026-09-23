@@ -501,17 +501,37 @@
 
 <script src="script.js"></script>
 <style>
-/* 1. Fix invisible logo in Dark Mode */
+/* 1. FIX LOGO SIZE & RIGHT SIDE ALIGNMENT */
+.brand img {
+  height: 36px !important;
+  width: auto !important;
+  max-width: 100% !important;
+  display: block;
+}
+@media (min-width: 900px) {
+  .brand img {
+    height: 44px !important;
+  }
+}
+.header-inner {
+  flex-wrap: nowrap !important;
+  gap: 1rem !important;
+}
+.brand {
+  flex-shrink: 0;
+}
+
+/* 2. Fix invisible logo in Dark Mode */
 :root[data-theme="dark"] .brand img,
 :root[data-theme="dark"] .footer-brand img {
   filter: invert(1) hue-rotate(180deg);
 }
 
-/* 2. Fix Dark Mode text readability in Architecture Cards */
+/* 3. Fix Dark Mode text readability in Architecture Cards */
 .stage--agent { background: var(--panel) !important; }
 .arch__stage li { color: var(--ink-soft) !important; }
 
-/* 3. PREMIUM CARD ALIGNMENT & HOVER */
+/* 4. PREMIUM CARD ALIGNMENT & HOVER */
 .agent-card {
   display: flex;
   flex-direction: column;
@@ -523,25 +543,23 @@
   box-shadow: 0 12px 24px -16px rgba(10, 22, 51, 0.25);
   border-color: var(--blue);
 }
-/* Push stats and button to the bottom perfectly */
 .agent-card__body {
   flex-grow: 1;
 }
 .agent-card__stats {
-  margin-top: 1.5rem; /* Space between text and stats */
+  margin-top: 1.5rem;
 }
 
-/* 4. Hide architecture diagram by default */
+/* 5. Hide/Show architecture diagram */
 .agent-card .arch {
   display: none;
   margin-top: 1.25rem;
 }
-/* Show architecture diagram when card is expanded */
 .agent-card.is-expanded .arch {
   display: block;
 }
 
-/* 5. Style the Show/Hide button */
+/* 6. Style the Show/Hide button */
 .arch-toggle {
   margin-top: 1.25rem;
   background: none;
