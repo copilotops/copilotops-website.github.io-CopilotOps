@@ -950,3 +950,51 @@ img { max-width: 100%; height: auto; display: block; }
 .agent-card.is-expanded .arch {
   display: block;
 }
+/* =========================================
+   HEADER LAYOUT & NAV UPDATES
+   ========================================= */
+.header-inner {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  width: 100%;
+  min-height: auto !important;
+  padding-top: 1rem !important;
+  padding-bottom: 0.5rem !important;
+  gap: 0.5rem !important;
+}
+.brand { order: 1; margin: 0 !important; }
+.theme-toggle {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.25rem;
+  order: 2;
+  margin: 0 !important;
+}
+.primary-nav {
+  order: 3 !important;
+  margin-left: 0 !important;
+  position: static !important;
+  display: block !important;
+  background: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  width: 100%;
+}
+.primary-nav ul {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 1.5rem !important;
+  padding: 0 !important;
+  justify-content: flex-start !important;
+}
+.nav-toggle { display: none !important; }
+
+/* Fix invisible logo in Dark Mode */
+:root[data-theme="dark"] .brand img,
+:root[data-theme="dark"] .footer-brand img {
+  filter: invert(1) hue-rotate(180deg);
+}
+/* Fix Dark Mode text readability in Architecture Cards */
+.stage--agent { background: var(--panel) !important; }
+.arch__stage li { color: var(--ink-soft) !important; }
