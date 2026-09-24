@@ -1,7 +1,7 @@
 /* =========================================================
    CopilotOps — script.js
    Vanilla JS. No dependencies, no build step.
-   1) Mobile navigation & Card expander
+   1) Mobile navigation & Architecture Card Expander
    2) Footer year & Theme toggle
    3) Guided project chatbot (frontend only)
    ========================================================= */
@@ -81,9 +81,7 @@
         '• Support agent for telecom — 1.2M tickets, 61% deflected.<br>' +
         '• DevOps GitHub harness across 340 repositories.<br>' +
         '• Retail inventory agent for 412 stores.<br>' +
-        '• HR assistant in Copilot Studio for 14,000 staff.<br>' +
-        '• Invoice processing with Power Automate.<br>' +
-        '• Claims triage model with deterministic decision rules.'
+        '• HR assistant in Copilot Studio for 14,000 staff.'
       ],
       target: '#agents',
       cta: 'View Agent Architectures'
@@ -122,21 +120,11 @@
       cta: 'Explore Declarative Agents'
     },
 
-    specialized: {
-      label: 'What are Specialized Agents?',
-      keywords: ['specialized', 'scout', 'voice', 'autonomous', 'telephony', 'phone'],
-      reply: [
-        'Specialized agents encompass Scout research bots, telephony voice agents, and autonomous workers designed for complex background processes.'
-      ],
-      target: '#cap-specialized-agents',
-      cta: 'Explore Specialized Agents'
-    },
-
     copilot: {
       label: 'Tell me about Copilot Studio & GitHub Harness',
       keywords: ['copilot', 'studio', 'github', 'harness', 'devops'],
       reply: [
-        'We deliver Copilot Studio solutions paired with GitHub Harness integration to establish CI/CD, prompt evaluation suites, and automated PR review guards.'
+        'We deliver Copilot Studio solutions paired with GitHub Harness integration to establish CI/CD, prompt evaluation suites, and automated review guards.'
       ],
       target: '#cap-copilot-studio',
       cta: 'Explore Copilot Studio'
@@ -174,7 +162,7 @@
       flash.classList.add('is-highlighted');
       setTimeout(function () { flash.classList.remove('is-highlighted'); }, 2600);
     }
-    if (window.matchMedia('(max-width: 639px)').matches) closePanel();
+    closePanel();
   }
 
   function addMessage(role, paragraphs, action) {
