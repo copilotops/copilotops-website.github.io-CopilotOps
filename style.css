@@ -806,5 +806,5 @@ img { max-width: 100%; height: auto; display: block; }
 /* Dark Mode Logo Fixes */
 :root[data-theme="dark"] .brand img,
 :root[data-theme="dark"] .footer-brand img {
-  filter: invert(1) hue-rotate(180deg);
+  filter: brightness(0) invert(1) drop-shadow(0 0 1px rgba(255, 255, 255, 0.4));
 }
