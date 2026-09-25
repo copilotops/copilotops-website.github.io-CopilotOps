@@ -529,8 +529,13 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 @media (min-width: 700px)  { .agent-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1100px) { .agent-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; } }
-
+@media (min-width: 1100px) {
+  .agent-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+  }
+}
 /* ============ Capabilities ============ */
 
 .cap-list {
@@ -809,5 +814,5 @@ img { max-width: 100%; height: auto; display: block; }
 /* Dark Mode Logo Fixes */
 :root[data-theme="dark"] .brand img,
 :root[data-theme="dark"] .footer-brand img {
-  filter: invert(1) hue-rotate(180deg);
+  filter: brightness(0) invert(1);
 }
