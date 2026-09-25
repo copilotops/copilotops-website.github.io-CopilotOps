@@ -525,9 +525,19 @@ img { max-width: 100%; height: auto; display: block; }
   box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2);
 }
 
-@media (min-width: 700px)  { .agent-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1100px) { .agent-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; } }
-
+@media (min-width: 700px) {
+  .agent-grid {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
+  }
+}
+@media (min-width: 1100px) {
+  .agent-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    align-items: start; /* Keeps each card at its own natural compact height */
+  }
+}
 /* ============ Capabilities ============ */
 
 .cap-list {
