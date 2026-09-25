@@ -112,8 +112,13 @@ a { color: var(--blue); text-decoration: none; }
 }
 .brand-link span { color: var(--blue); }
 .brand-logo-mark { width: 36px; height: 36px; }
-.brand-logo-img { height: 38px; width: auto; display: block; }
-
+.brand-logo-img { 
+  height: 38px !important; 
+  width: auto !important; 
+  max-width: 100% !important;
+  object-fit: contain !important; 
+  display: block !important; 
+}
 .theme-toggle {
   display: inline-flex;
   align-items: center;
