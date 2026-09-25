@@ -1,32 +1,80 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Select ALL toggle buttons on the page
-    const toggleButtons = document.querySelectorAll('.toggle-arch-btn');
+(function() {
+  'use strict';
+  
+  // Theme Toggle
+  const toggleBtn = document.getElementById('themeToggle');
+  const root = document.documentElement;
+  toggleBtn.addEventListener('click', () => {
+    const isDark = root.getAttribute('data-theme') === 'dark';
+    root.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  });
 
-    // Loop through each button and add a safe, bulletproof click listener
-    toggleButtons.forEach(btn => {
-        btn.addEventListener('click', (event) => {
-            // 1. Find the specific card that contains the clicked button
-            const card = event.target.closest('.agent-card');
-            
-            // 2. Safety check: if no card found, do nothing (prevents crash)
-            if (!card) return;
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-            // 3. Find the architecture container inside THIS specific card
-            const archContainer = card.querySelector('.arch-container');
-            
-            // 4. Safety check: if no container found, do nothing
-            if (!archContainer) return;
-
-            // 5. Toggle the display based on current state
-            const isHidden = archContainer.style.display === 'none' || !archContainer.style.display;
-
-            if (isHidden) {
-                archContainer.style.display = 'block';
-                event.target.textContent = 'Hide architecture';
-            } else {
-                archContainer.style.display = 'none';
-                event.target.textContent = 'Show architecture';
-            }
-        });
+  // Architecture Card Expander
+  document.querySelectorAll('.arch-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.agent-card');
+      const expanded = card.classList.toggle('is-expanded');
+      btn.textContent = expanded ? 'Hide architecture' : 'Show architecture';
     });
-});
+  });
+
+  // Chatbot
+  const launcher = document.getElementById('chatLauncher');
+  const panel = document.getElementById('chatPanel');
+  const closeBtn = document.getElementById('chatClose');
+  const log = document.getElementById('chatLog');
+  const prompts = document.getElementById('chatPrompts');
+  const form = document.getElementById('chatForm');
+  const input = document.getElementById('chatText');
+
+  launcher.addEventListener('click', () => {
+    panel.hidden = false;
+    launcher.style.display = 'none';
+    if (!log.children.length) {
+      appendMsg('bot', 'Welcome to CopilotOps. How can we help you structure your enterprise AI agents?');
+      renderPrompts();
+    }
+  });
+
+  closeBtn.addEventListener('click', () => {
+    panel.hidden = true;
+    launcher.style.display = 'inline-flex';
+  });
+
+  function appendMsg(role, text) {
+    const div = document.createElement('div');
+    div.className = `msg msg--${role}`;
+    div.textContent = text;
+    log.appendChild(div);
+    log.scrollTop = log.scrollHeight;
+  }
+
+  function renderPrompts() {
+    prompts.innerHTML = '';
+    const qList = ['What agents have you built?', 'Tell me about Governance', 'How do you work with Copilot Studio?'];
+    qList.forEach(q => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = q;
+      b.onclick = () => {
+        appendMsg('user', q);
+        setTimeout(() => appendMsg('bot', 'CopilotOps delivers governed Copilot Studio solutions, DevOps harnesses, and M365 declarative agents designed for zero drift and enterprise compliance.'), 400);
+      };
+      prompts.appendChild(b);
+    });
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const val = input.value.trim();
+    if (!val) return;
+    appendMsg('user', val);
+    input.value = '';
+    setTimeout(() => {
+      appendMsg('bot', 'Thank you for reaching out. Please email copilotops@gmail.com with your project specifications.');
+    }, 500);
+  });
+})();
