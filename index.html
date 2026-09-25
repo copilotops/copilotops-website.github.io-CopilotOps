@@ -1,110 +1,173 @@
-<section id="agents" class="agents-section">
-  <div class="container">
-    <h2 class="section-title">Production-Ready Agents</h2>
-    <p class="section-subtitle">Explore specialized agents built on the CopilotOps framework.</p>
-    
-    <div class="agents-grid">
-      <!-- Agent 1 -->
-      <div class="agent-card">
-        <h3>Customer Support Agent</h3>
-        <p class="agent-meta">Telecom · 1.2M tickets a year</p>
-        <p class="agent-desc">Handles inbound tickets, classifies urgency, and drafts responses for human review.</p>
-        <button class="toggle-arch-btn">Show architecture</button>
-        <div class="arch-container" style="display: none;">
-          <div class="arch__row">
-            <div class="arch__box">Customer Request</div>
-            <div class="arch__conn"><span></span></div>
-            <div class="arch__box">AI Triage</div>
-            <div class="arch__conn"><span></span></div>
-            <div class="arch__box">Resolution Draft</div>
-          </div>
-        </div>
-      </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CopilotOps</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-      <!-- Agent 2 -->
-      <div class="agent-card">
-        <h3>DevOps GitHub Agent</h3>
-        <p class="agent-meta">Tech · 500+ Deploys a Month</p>
-        <p class="agent-desc">Monitors CI/CD pipelines, analyzes failures, and suggests code fixes automatically.</p>
-        <button class="toggle-arch-btn">Show architecture</button>
-        <div class="arch-container" style="display: none;">
-          <div class="arch__row">
-            <div class="arch__box">Pipeline Failure</div>
-            <div class="arch__conn"><span></span></div>
-            <div class="arch__box">Log Analysis</div>
-            <div class="arch__conn"><span></span></div>
-            <div class="arch__box">PR Suggestion</div>
-          </div>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="/" class="logo">
+                <div class="logo-mark">C</div>
+                <span class="logo-text">CopilotOps</span>
+            </a>
+            <nav class="main-nav">
+                <a href="#agents">Agents</a>
+                <a href="#architecture">Architecture</a>
+            </nav>
         </div>
-      </div>
+    </header>
 
-      <!-- Agent 3 -->
-      <div class="agent-card">
-        <h3>HR Copilot Agent</h3>
-        <p class="agent-meta">Enterprise · 50k Employees</p>
-        <p class="agent-desc">Answers internal policy questions, manages PTO requests, and onboards new hires.</p>
-        <button class="toggle-arch-btn">Show architecture</button>
-        <div class="arch-container" style="display: none;">
-          <div class="arch__row">
-            <div class="arch__box">Employee Query</div>
-            <div class="arch__conn"><span></span></div>
-            <div class="arch__box">Policy Search</div>
-            <div class="arch__conn"><span></span></div>
-            <div class="arch__box">HR Response</div>
-          </div>
+    <!-- Hero Section -->
+    <section id="architecture" class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">CopilotOps Reference Architecture</h1>
+            <p class="hero-subtitle">A unified framework for building, deploying, and managing production-ready AI agents.</p>
+            
+            <div class="hero-arch-diagram">
+                <div class="arch__row">
+                    <div class="arch__box">User Prompt</div>
+                    <div class="arch__conn"><span></span></div>
+                    <div class="arch__box">CopilotOps Layer</div>
+                    <div class="arch__conn"><span></span></div>
+                    <div class="arch__box">AI Engine</div>
+                    <div class="arch__conn"><span></span></div>
+                    <div class="arch__box">Action / Response</div>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <!-- Agent 4 -->
-      <div class="agent-card">
-        <h3>Ask Microsoft Web Agent</h3>
-        <p class="agent-meta">Web Services · Global Scale</p>
-        <p class="agent-desc">Processes customer requests via service layer and routes to specialized sub-agents.</p>
-        <button class="toggle-arch-btn">Show architecture</button>
-        <div class="arch-container" style="display: none;">
-          <div class="arch__row">
-            <div class="arch__box">Customer Request</div>
-            <div class="arch__conn"><span></span></div>
-            <div class="arch__box">Service Layer</div>
-            <div class="arch__conn"><span></span></div>
-            <div class="arch__box">Sub-Agents</div>
-          </div>
-        </div>
-      </div>
+    <!-- Agents Section -->
+    <section id="agents" class="agents-section">
+        <div class="container">
+            <h2 class="section-title">Copilot-Ready Agents</h2>
+            <p class="section-subtitle">Explore specialized agents built on the CopilotOps framework.</p>
+            
+            <div class="agents-grid">
+                <!-- Agent 1 -->
+                <div class="agent-card">
+                    <h3>Customer Support Agent</h3>
+                    <p class="agent-meta">Telecom · 1.2M tickets a year</p>
+                    <p class="agent-desc">Handles inbound tickets, classifies urgency, and drafts responses for human review.</p>
+                    <button class="toggle-arch-btn">Show architecture</button>
+                    <div class="arch-container" style="display: none;">
+                        <div class="arch__row">
+                            <div class="arch__box">Customer Request</div>
+                            <div class="arch__conn"><span></span></div>
+                            <div class="arch__box">AI Triage</div>
+                            <div class="arch__conn"><span></span></div>
+                            <div class="arch__box">Resolution Draft</div>
+                        </div>
+                    </div>
+                </div>
 
-      <!-- Agent 5 -->
-      <div class="agent-card">
-        <h3>Microsoft Data Lake Agent</h3>
-        <p class="agent-meta">Data · 10TB+ Ingested Daily</p>
-        <p class="agent-desc">Ingests and processes source data, storing it securely in the Microsoft Data Lake.</p>
-        <button class="toggle-arch-btn">Show architecture</button>
-        <div class="arch-container" style="display: none;">
-          <div class="arch__row">
-            <div class="arch__box">Source Data</div>
-            <div class="arch__conn"><span></span></div>
-            <div class="arch__box">Data Processing</div>
-            <div class="arch__conn"><span></span></div>
-            <div class="arch__box">Store in Data Lake</div>
-          </div>
-        </div>
-      </div>
+                <!-- Agent 2 -->
+                <div class="agent-card">
+                    <h3>DevOps GitHub Agent</h3>
+                    <p class="agent-meta">Tech · 500+ Deploys a Month</p>
+                    <p class="agent-desc">Monitors CI/CD pipelines, analyzes failures, and suggests code fixes automatically.</p>
+                    <button class="toggle-arch-btn">Show architecture</button>
+                    <div class="arch-container" style="display: none;">
+                        <div class="arch__row">
+                            <div class="arch__box">Pipeline Failure</div>
+                            <div class="arch__conn"><span></span></div>
+                            <div class="arch__box">Log Analysis</div>
+                            <div class="arch__conn"><span></span></div>
+                            <div class="arch__box">PR Suggestion</div>
+                        </div>
+                    </div>
+                </div>
 
-      <!-- Agent 6 -->
-      <div class="agent-card">
-        <h3>IT Service Desk Agent</h3>
-        <p class="agent-meta">Internal IT · 24/7 Support</p>
-        <p class="agent-desc">Automates password resets, software provisioning, and hardware ticketing.</p>
-        <button class="toggle-arch-btn">Show architecture</button>
-        <div class="arch-container" style="display: none;">
-          <div class="arch__row">
-            <div class="arch__box">IT Ticket</div>
-            <div class="arch__conn"><span></span></div>
-            <div class="arch__box">Auto-Resolution</div>
-            <div class="arch__conn"><span></span></div>
-            <div class="arch__box">System Update</div>
-          </div>
+                <!-- Agent 3 -->
+                <div class="agent-card">
+                    <h3>HR Copilot Agent</h3>
+                    <p class="agent-meta">Enterprise · 50k Employees</p>
+                    <p class="agent-desc">Answers internal policy questions, manages PTO requests, and onboards new hires.</p>
+                    <button class="toggle-arch-btn">Show architecture</button>
+                    <div class="arch-container" style="display: none;">
+                        <div class="arch__row">
+                            <div class="arch__box">Employee Query</div>
+                            <div class="arch__conn"><span></span></div>
+                            <div class="arch__box">Policy Search</div>
+                            <div class="arch__conn"><span></span></div>
+                            <div class="arch__box">HR Response</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agent 4 -->
+                <div class="agent-card">
+                    <h3>Ask Microsoft Web Agent</h3>
+                    <p class="agent-meta">Web Services · Global Scale</p>
+                    <p class="agent-desc">Processes customer requests via service layer and routes to specialized sub-agents.</p>
+                    <button class="toggle-arch-btn">Show architecture</button>
+                    <div class="arch-container" style="display: none;">
+                        <div class="arch__row">
+                            <div class="arch__box">Customer Request</div>
+                            <div class="arch__conn"><span></span></div>
+                            <div class="arch__box">Service Layer</div>
+                            <div class="arch__conn"><span></span></div>
+                            <div class="arch__box">Route to Sub-Agents</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agent 5 -->
+                <div class="agent-card">
+                    <h3>Microsoft Data Lake Agent</h3>
+                    <p class="agent-meta">Data · 10TB+ Ingested Daily</p>
+                    <p class="agent-desc">Ingests and processes source data, storing it securely in the Microsoft Data Lake.</p>
+                    <button class="toggle-arch-btn">Show architecture</button>
+                    <div class="arch-container" style="display: none;">
+                        <div class="arch__row">
+                            <div class="arch__box">Source Data</div>
+                            <div class="arch__conn"><span></span></div>
+                            <div class="arch__box">Data Ingestion/Processing</div>
+                            <div class="arch__conn"><span></span></div>
+                            <div class="arch__box">Store in Data Lake</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agent 6 -->
+                <div class="agent-card">
+                    <h3>IT Service Desk Agent</h3>
+                    <p class="agent-meta">Internal IT · 24/7 Support</p>
+                    <p class="agent-desc">Automates password resets, software provisioning, and hardware ticketing.</p>
+                    <button class="toggle-arch-btn">Show architecture</button>
+                    <div class="arch-container" style="display: none;">
+                        <div class="arch__row">
+                            <div class="arch__box">IT Ticket</div>
+                            <div class="arch__conn"><span></span></div>
+                            <div class="arch__box">Auto-Resolution</div>
+                            <div class="arch__conn"><span></span></div>
+                            <div class="arch__box">System Update</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <a href="/" class="logo">
+                <div class="logo-mark">C</div>
+                <span class="logo-text">CopilotOps</span>
+            </a>
+            <p>&copy; 2024 CopilotOps. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
