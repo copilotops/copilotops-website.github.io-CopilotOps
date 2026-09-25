@@ -66,37 +66,38 @@
         </div>
       </div>
 
+      <!-- HERO ARCHITECTURE: Mapped to Enterprise RAG Flow -->
       <figure class="arch arch--hero">
-        <p class="arch__title">CopilotOps Reference Architecture</p>
+        <p class="arch__title">CopilotOps Reference Architecture (RAG Flow)</p>
         <div class="arch__row">
           <div class="arch__stage stage--source">
-            <h4>Channels &amp; Sources</h4>
+            <h4>Data Sources &amp; Input</h4>
             <ul>
-              <li>Teams, email, web</li>
-              <li>Line-of-business events</li>
-              <li>Knowledge repositories</li>
+              <li>SharePoint, OneDrive, DBs</li>
+              <li>User Prompt (Teams, Web)</li>
+              <li>Document Intelligence</li>
             </ul>
           </div>
           <div class="arch__conn" aria-hidden="true"><span></span></div>
           <div class="arch__stage stage--agent">
-            <h4>Agent Runtime</h4>
+            <h4>Agent Runtime (RAG)</h4>
             <ul>
-              <li>Planner &amp; orchestration</li>
-              <li>Grounded retrieval</li>
-              <li>Policy &amp; confidence gate</li>
+              <li>Query Understanding</li>
+              <li>Azure AI Search Retrieval</li>
+              <li>Prompt Assembly &amp; Generation</li>
             </ul>
           </div>
           <div class="arch__conn" aria-hidden="true"><span></span></div>
           <div class="arch__stage stage--action">
-            <h4>Systems of Action</h4>
+            <h4>Response &amp; Action</h4>
             <ul>
-              <li>ERP, CRM, ITSM</li>
-              <li>Approval workflows</li>
-              <li>Audit record logged</li>
+              <li>Natural Language Answer</li>
+              <li>Feedback &amp; Monitoring</li>
+              <li>System of Record Update</li>
             </ul>
           </div>
         </div>
-        <p class="arch__rail">Identity &amp; Scoped Access · Evaluation Suite · Trace Logging · Human Review Loop</p>
+        <p class="arch__rail">Microsoft Entra ID · Identity &amp; Scoped Access · Data Governance · Audit Logs</p>
       </figure>
     </div>
   </section>
@@ -106,7 +107,7 @@
     <div class="shell">
       <header class="section-head">
         <h2>Agent Summary &amp; Architecture</h2>
-        <p>Production patterns from live enterprise deployments across customer service, DevOps, and operations.</p>
+        <p>Production patterns from live enterprise deployments mapped to the Enterprise RAG reference flow.</p>
       </header>
 
       <div class="agent-grid">
@@ -122,17 +123,17 @@
             <div class="arch__row">
               <div class="arch__stage stage--source">
                 <h4>Input</h4>
-                <ul><li>Email &amp; chat ticket</li><li>Customer record</li></ul>
+                <ul><li>Email &amp; chat ticket</li><li>CRM record context</li></ul>
               </div>
               <div class="arch__conn" aria-hidden="true"><span></span></div>
               <div class="arch__stage stage--agent">
-                <h4>Agent</h4>
-                <ul><li>Intent parsing</li><li>CRM verification</li><li>Draft generation</li></ul>
+                <h4>Agent (RAG)</h4>
+                <ul><li>Query Understanding</li><li>Knowledge Retrieval</li><li>Draft Generation</li></ul>
               </div>
               <div class="arch__conn" aria-hidden="true"><span></span></div>
               <div class="arch__stage stage--action">
-                <h4>Action</h4>
-                <ul><li>Reply sent</li><li>Or advisor queue</li></ul>
+                <h4>Response</h4>
+                <ul><li>NL Answer Sent</li><li>Or advisor queue</li></ul>
               </div>
             </div>
             <p class="arch__rail">Refund cap · Tone policy · Transcript logged</p>
@@ -155,13 +156,13 @@
               </div>
               <div class="arch__conn" aria-hidden="true"><span></span></div>
               <div class="arch__stage stage--agent">
-                <h4>Agent</h4>
-                <ul><li>Diff analysis</li><li>Security scan</li><li>Test coverage check</li></ul>
+                <h4>Agent (RAG)</h4>
+                <ul><li>Diff Analysis</li><li>RAG Security Scan</li><li>Prompt Assembly</li></ul>
               </div>
               <div class="arch__conn" aria-hidden="true"><span></span></div>
               <div class="arch__stage stage--action">
-                <h4>Action</h4>
-                <ul><li>Review suggestions</li><li>Commit candidate</li></ul>
+                <h4>Response</h4>
+                <ul><li>NL Review Suggestions</li><li>Commit candidate</li></ul>
               </div>
             </div>
             <p class="arch__rail">Branch protection · Zero auto-merging · Evaluation suite</p>
@@ -180,17 +181,17 @@
             <div class="arch__row">
               <div class="arch__stage stage--source">
                 <h4>Input</h4>
-                <ul><li>Teams conversational prompt</li><li>Employee handbook</li></ul>
+                <ul><li>Teams conversational prompt</li><li>Employee handbook docs</li></ul>
               </div>
               <div class="arch__conn" aria-hidden="true"><span></span></div>
               <div class="arch__stage stage--agent">
-                <h4>Agent</h4>
-                <ul><li>Grounded retrieval</li><li>Entitlement check</li><li>Policy matching</li></ul>
+                <h4>Agent (RAG)</h4>
+                <ul><li>Query Understanding</li><li>Grounded Retrieval</li><li>Policy Matching</li></ul>
               </div>
               <div class="arch__conn" aria-hidden="true"><span></span></div>
               <div class="arch__stage stage--action">
-                <h4>Action</h4>
-                <ul><li>Leave request entry</li><li>Manager notification</li></ul>
+                <h4>Response</h4>
+                <ul><li>NL Answer to employee</li><li>Leave request entry</li></ul>
               </div>
             </div>
             <p class="arch__rail">Whitelisted knowledge · Confidential data controls</p>
@@ -209,17 +210,17 @@
             <div class="arch__row">
               <div class="arch__stage stage--source">
                 <h4>Input</h4>
-                <ul><li>Customer Request</li><li>Web Chat</li><li>Email</li></ul>
+                <ul><li>Web Chat Request</li><li>Customer context</li></ul>
               </div>
               <div class="arch__conn" aria-hidden="true"><span></span></div>
               <div class="arch__stage stage--agent">
-                <h4>Agent</h4>
-                <ul><li>Customer Service Layer</li><li>Intent Routing</li><li>Live Agent</li></ul>
+                <h4>Agent (RAG)</h4>
+                <ul><li>Intent Routing</li><li>Knowledge Base Search</li><li>Prompt Assembly</li></ul>
               </div>
               <div class="arch__conn" aria-hidden="true"><span></span></div>
               <div class="arch__stage stage--action">
-                <h4>Action</h4>
-                <ul><li>Route to Sub-Agents (Azure, M365)</li><li>Search Knowledge Base (Bing)</li></ul>
+                <h4>Response</h4>
+                <ul><li>NL Answer delivered</li><li>Route to Sub-Agents</li></ul>
               </div>
             </div>
             <p class="arch__rail">Scoped Access · Knowledge Grounding · Human Handoff</p>
@@ -238,17 +239,17 @@
             <div class="arch__row">
               <div class="arch__stage stage--source">
                 <h4>Input</h4>
-                <ul><li>Source Data</li><li>User Inputs</li><li>API Streams</li></ul>
+                <ul><li>Source Data &amp; APIs</li><li>User Inputs</li></ul>
               </div>
               <div class="arch__conn" aria-hidden="true"><span></span></div>
               <div class="arch__stage stage--agent">
-                <h4>Agent</h4>
-                <ul><li>Data Ingestion</li><li>Data Processing</li><li>Pipeline Orchestration</li></ul>
+                <h4>Agent (RAG)</h4>
+                <ul><li>Data Ingestion</li><li>Processing Pipeline</li><li>Orchestration</li></ul>
               </div>
               <div class="arch__conn" aria-hidden="true"><span></span></div>
               <div class="arch__stage stage--action">
-                <h4>Action</h4>
-                <ul><li>Store in Data Lake</li><li>Trigger Analytics</li><li>Update Metadata</li></ul>
+                <h4>Response</h4>
+                <ul><li>Store in Data Lake</li><li>Trigger Analytics</li></ul>
               </div>
             </div>
             <p class="arch__rail">Role-Based Access · Data Validation · Pipeline Logging</p>
@@ -271,13 +272,13 @@
               </div>
               <div class="arch__conn" aria-hidden="true"><span></span></div>
               <div class="arch__stage stage--agent">
-                <h4>Agent</h4>
+                <h4>Agent (RAG)</h4>
                 <ul><li>Intent classification</li><li>Entitlement check</li><li>Action execution</li></ul>
               </div>
               <div class="arch__conn" aria-hidden="true"><span></span></div>
               <div class="arch__stage stage--action">
-                <h4>Action</h4>
-                <ul><li>Password reset</li><li>Software deployment</li></ul>
+                <h4>Response</h4>
+                <ul><li>NL confirmation</li><li>Password reset / Software</li></ul>
               </div>
             </div>
             <p class="arch__rail">Role-based access · Standard images only · Ticket updated</p>
