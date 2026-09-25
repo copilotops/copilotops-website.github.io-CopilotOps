@@ -495,7 +495,7 @@ img { max-width: 100%; height: auto; display: block; }
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.25rem;
-  align-items: start;
+  align-items: start; /* Prevents cards from stretching vertically when one expands */
 }
 .agent-card {
   background: var(--panel);
@@ -568,7 +568,7 @@ img { max-width: 100%; height: auto; display: block; }
   .agent-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
-    align-items: start;
+    align-items: start; /* Keeps each card at its own natural compact height */
   }
 }
 /* ============ Capabilities ============ */
