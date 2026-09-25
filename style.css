@@ -461,9 +461,12 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 /* ============ Agent grid ============ */
-
-.agent-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
-
+.agent-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
 .agent-card {
   background: var(--panel);
   border: 1px solid var(--rule);
